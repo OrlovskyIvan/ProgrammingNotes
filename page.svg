@@ -12,6 +12,7 @@
 				}
 
 				.container {
+					box-sizing: border-box;
 					font-family:
 						system-ui,
 						-apple-system,
@@ -25,7 +26,9 @@
 					margin: 0;
 					width: 100%;
 					color: #000000;
-					padding: 10px 0 10px;
+					background-color: #75a3a3;
+					border-radius: 2px;
+					padding: 10px 5px 10px 5px;
 				}
 				
 				.block {
