@@ -44,6 +44,10 @@
 					margin-bottom: 5px;
 				}
 				
+				.notes__container {
+					padding: 5px 0;
+				}
+				
 				.note__p {
 					font-size: 16px;
 					line-height: 18px;
@@ -90,7 +94,7 @@
 					font-weight: bold;
 					line-height: 20px;
 					letter-spacing: 1px;
-					margin-bottom: 5px;
+					margin: 0 0 5px 0;
 				}
 				
 				li {
@@ -107,18 +111,32 @@
 				}
 			</style>
 			
+			
+			 
+			
 			<div class="container">
 				<div class="h1-container">
 					<h1>Programming notes</h1>
 				</div>
 				<div class="block">
 					<h2>Notes</h2>
-					<div class="note">
-						<p class="note__p">Objects are equal to each other only if it is the same object.</p>
+					<div class="notes__container">
+						<h3>Objects</h3>
+						<div class="note">
+							<p class="note__p">Objects are equal to each other only if it is the same object.</p>
+						</div>
+						<div class="note">
+							<p class="note__p">There is no native method to deep clone an object.</p>
+							<p class="note__p">structuredClone(value) isn't supported in nodejs webworkers.</p>
+						</div>
 					</div>
-					<div class="note">
-						<p class="note__p">There is no native method to deep clone an object.</p>
-						<p class="note__p">structuredClone(value) isn't supported in nodejs webworkers.</p>
+					<div class="notes__container">
+						<h3>Performance</h3>
+						<div class="note">
+							<p class="note__p">Today's intepretators do a lot of optimisations. They can influence on the results of tests compared to ordinary use. If you want to understand does performance work you need to read about work of intepretators.</p>
+							<p class="note__p">Source: https://learn.javascript.ru/date</p>
+							<p class="note__p">Good article about V8: https://mrale.ph/</p>
+						</div>
 					</div>
 				</div>
 				<div class="block">
