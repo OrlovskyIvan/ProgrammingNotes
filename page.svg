@@ -55,6 +55,10 @@
 					margin: 0 0 2px 0;
 				}
 				
+				.note__bold {
+					font-weight: bold;
+				}
+				
 				.h1-container {
 					display: inline-block;
 					border: 2px solid #ccffcc;
@@ -136,6 +140,12 @@
 							<p class="note__p">Today's intepretators do a lot of optimisations. They can influence on the results of tests compared to ordinary use. If you want to understand does performance work you need to read about work of intepretators.</p>
 							<p class="note__p">Source: https://learn.javascript.ru/date</p>
 							<p class="note__p">Good article about V8: https://mrale.ph/</p>
+						</div>
+					</div>
+					<div class="notes__container">
+						<h3>Compatibility</h3>
+						<div class="note">
+							<p class="note__p">In the <span class="note__bold">Strict mode</span> if there is no the global variable that is assigned in a function then code will show an error.</p>
 						</div>
 					</div>
 				</div>
