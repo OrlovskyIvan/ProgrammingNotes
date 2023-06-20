@@ -1,1 +1,1 @@
-# ProgrammingNotes
+<img src="page.svg" width="900" height="auto" alt="Notes about programming">
