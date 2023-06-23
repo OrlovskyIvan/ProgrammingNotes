@@ -59,6 +59,39 @@
 					font-weight: bold;
 				}
 				
+				.code {
+					font-family: Trebuchet MS, Helvetica, sans-serif;
+					font-size: 14px;
+					line-height: 16px;
+					letter-spacing: auto;
+					border-radius: 2px;
+					background-color: #FFFAF0;
+					padding: 5px;
+					margin: 0;
+				}
+				.code__p {
+					display: block;
+				}
+					
+				.code__space {
+					display: inline-block;
+					width: 20px;
+				}
+				
+				.code__space-x2 {
+					width: 40px;
+				}
+				
+				.code__space-x3 {
+					width: 60px;
+				}
+				
+				.code__empty-line {
+					display: block;
+					width: 1px;
+					height: 16px;
+				}
+								
 				.h1-container {
 					display: inline-block;
 					border: 2px solid #ccffcc;
@@ -132,6 +165,44 @@
 						<div class="note">
 							<p class="note__p">There is no native method to deep clone an object.</p>
 							<p class="note__p">structuredClone(value) isn't supported in nodejs webworkers.</p>
+						</div>
+						<div class="note">
+							<p class="note__p">You shouldn't use cycle <span class="note__bold">for in</span> for arrays because it is optimised for <span class="note__bold">objects</span>.</p>
+							<p class="note__p">You can use cycle <span class="note__bold">for of</span> for iterable objects when you don't need the number of an item.</p>
+							<p class="note__p">Iterable objects include instances of built-ins such as Array, String, TypedArray, Map, Set, NodeList (and other DOM collections), as well as the arguments object, generators produced by generator functions, and user-defined iterables</p>
+						</div>
+					</div>
+					<div class="notes__container">
+						<h3>Naming of variables</h3>
+						<div class="note">
+							<p class="note__p"><span class="note__bold">Getters and setters</span> are used to <span class="note__bold">control properties</span> of an object.</p>
+							<p class="note__p">You can use getters and setters as wrappers around an ordinary property of an object.</p>
+							<p class="note__p">In this case you can use a property defined like <span class="note__bold">"_property" to store the main data and use "property" to define setter and getter</span>.</p>
+							<p class="note__p">In JavaScript there is a widely known convention that <span class="note__bold">properties starting with an underscore "_" are internal and should not be touched from outside</span> the object.</p>
+							<p class="note__p">Example:</p>
+							<div class="code">
+								<span class="code__p">let user = {</span>
+								  <span class="code__p"><span class="code__space"></span>get name() {</span>
+								    <span class="code__p"><span class="code__space code__space-x2"></span>return this._name;</span>
+								  <span class="code__p"><span class="code__space"></span>},</span>
+								  <span class="code__empty-line"></span>
+								  <span class="code__p"><span class="code__space"></span>set name(value) {</span>
+								    <span class="code__p"><span class="code__space code__space-x2"></span>if (value.length меньше 4) {</span>
+								      <span class="code__p"><span class="code__space code__space-x3"></span>alert("Name is too short, need at least 4 characters");</span>
+								      <span class="code__p"><span class="code__space code__space-x3"></span>return;</span>
+								    <span class="code__p"><span class="code__space code__space-x2"></span>}</span>
+								    <span class="code__p"><span class="code__space code__space-x2"></span>this._name = value;</span>
+								  <span class="code__p"><span class="code__space"></span>}</span>
+								<span class="code__p">};</span>
+								<span class="code__empty-line"></span>
+								<span class="code__p">user.name = "Pete";</span>
+								<span class="code__p">alert(user.name); // Pete</span>
+								<span class="code__empty-line"></span>
+								<span class="code__p">user.name = ""; // Name is too short...</span>
+							</div>
+						</div>
+						<div class="note">
+							<p class="note__p">A <span class="note__bold">class</span> start with a <span class="note__bold">capital</span> letter.</p>
 						</div>
 					</div>
 					<div class="notes__container">
