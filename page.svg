@@ -202,6 +202,31 @@
 							</div>
 						</div>
 						<div class="note">
+							<p class="note__p">There are <span class="note__bold">private properties of a class that start with "#"</span>. They are <span class="note__bold">accessible only from inside</span> the class.</p>
+							<p class="note__p">Example:</p>
+							<div class="code">
+								<span class="code__p">class CoffeeMachine {</span>
+								<span class="code__p"><span class="code__space"></span>#waterLimit = 200;</span>
+								<span class="code__empty-line"></span>
+								<span class="code__p"><span class="code__space"></span>#fixWaterAmount(value) {</span>
+								<span class="code__p"><span class="code__space code__space-x2"></span>if (value меньше 0) return 0;</span>
+								<span class="code__p"><span class="code__space code__space-x2"></span>if (value больше this.#waterLimit) return this.#waterLimit;</span>
+								<span class="code__p"><span class="code__space"></span>}</span>
+								<span class="code__empty-line"></span>
+								<span class="code__p"><span class="code__space"></span>setWaterAmount(value) {</span>
+								<span class="code__p"><span class="code__space code__space-x2"></span>this.#waterLimit = this.#fixWaterAmount(value);</span>
+								<span class="code__p"><span class="code__space"></span>}</span>
+								<span class="code__empty-line"></span>
+								<span class="code__p">}</span>
+								<span class="code__empty-line"></span>
+								<span class="code__p">let coffeeMachine = new CoffeeMachine();</span>
+								<span class="code__empty-line"></span>
+								<span class="code__p">// can't access privates from outside of the class</span>
+								<span class="code__p">coffeeMachine.#fixWaterAmount(123); // Error</span>
+								<span class="code__p">coffeeMachine.#waterLimit = 1000; // Error</span>
+							</div>
+						</div>
+						<div class="note">
 							<p class="note__p">A <span class="note__bold">class</span> start with a <span class="note__bold">capital</span> letter.</p>
 						</div>
 					</div>
