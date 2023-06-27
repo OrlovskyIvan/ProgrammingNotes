@@ -231,6 +231,15 @@
 						</div>
 					</div>
 					<div class="notes__container">
+						<h3>JavaScript</h3>
+						<div class="note">
+							<p class="note__p">Methods <span class="note__bold">getElementsBy* return live collections</span>. That means if you select elements and add a new element in code it will also be added in the collection.</p>
+						</div>
+						<div class="note">
+							<p class="note__p"><span class="note__bold">User attributes</span> of html elements should be prefixed with <span class="note__bold">"data-*"</span>. Then they will be accessible through the property <span class="note__bold">dataset</span>.</p>
+						</div>
+					</div>
+					<div class="notes__container">
 						<h3>Performance</h3>
 						<div class="note">
 							<p class="note__p">Today's intepretators do a lot of optimisations. They can influence on the results of tests compared to ordinary use. If you want to understand does performance work you need to read about work of intepretators.</p>
