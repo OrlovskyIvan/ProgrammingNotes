@@ -2,6 +2,11 @@
 	<foreignObject width="100%" height="100%">
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<style>
+				* {
+					margin: 0;
+					padding: 0;
+				}
+				
 				@keyframes rotate {
 					0% {
 						transform: rotate(3deg);
@@ -67,7 +72,7 @@
 					border-radius: 2px;
 					background-color: #FFFAF0;
 					padding: 5px;
-					margin: 0;
+					margin-bottom: 2px;
 				}
 				.code__p {
 					display: block;
@@ -228,6 +233,25 @@
 						</div>
 						<div class="note">
 							<p class="note__p">A <span class="note__bold">class</span> start with a <span class="note__bold">capital</span> letter.</p>
+						</div>
+						<div class="note">
+							<p class="note__p">It is common practice that <span class="note__bold">event handlers of a HTML elements</span> start with <span class="note__bold">on*</span> and consist <span class="note__bold">only lower letters</span>. But they can be named in various ways: Onclick, ONCLICK/</p>
+							<p class="note__p">Example:</p>
+							<div class="code">
+								<span class="code__p">onclick="alert('Клик!')"</span>
+							</div>
+							<p class="note__p">Event handlers of a DOM element start <span class="note__bold">only with on*</span> and consist <span class="note__bold">only lower letters</span>.</p>
+							<p class="note__p">Example:</p>
+							<div class="code">
+								<span class="code__p">elem.onclick = function() { // перезапишет существующий обработчик</span>
+								<span class="code__p"><span class="code__space"></span>alert('Клик!'); // выведется только это</span>
+							  	<span class="code__p">};</span>
+							</div>
+							<p class="note__p">In the addEventListener events are named as they are called in JavaScript.</p>
+							<p class="note__p">Example:</p>
+							<div class="code">
+								<span class="code__p">elem.addEventListener( "click" , () => alert('Клик!')</span>
+							</div>
 						</div>
 					</div>
 					<div class="notes__container">
