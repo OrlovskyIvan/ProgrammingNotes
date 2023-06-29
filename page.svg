@@ -293,6 +293,7 @@
 						<li>Memory card about naming of variables</li>
 						<li>local storage</li>
 						<li>Numbers error because of storage in binary memory</li>
+						<li>addEventListener passive, touch-action: none.</li>
 					</ul>
 				</div>
 			</div>
