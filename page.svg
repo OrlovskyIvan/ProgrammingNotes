@@ -252,6 +252,11 @@
 							<div class="code">
 								<span class="code__p">elem.addEventListener( "click" , () => alert('Клик!')</span>
 							</div>
+							<p class="note__p">In the <span class="note__bold">React</span> naming of events on components is wrote like <span class="note__bold">onClick</span>.</p>
+							<p class="note__p">Example:</p>
+							<div class="code">
+								<span class="code__p">onClick={handleClick}</span>
+							</div>
 						</div>
 					</div>
 					<div class="notes__container">
