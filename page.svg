@@ -1,4 +1,4 @@
-<svg fill="none" viewBox="0 0 800 2000" width="800" height="2000" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" viewBox="0 0 800 5000" width="800" height="5000" xmlns="http://www.w3.org/2000/svg">
 	<foreignObject width="100%" height="100%">
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<style>
@@ -257,6 +257,11 @@
 							<div class="code">
 								<span class="code__p">onClick={handleClick}</span>
 							</div>
+							<p class="note__p"><span class="note__bold">Event handlers</span> are named like <span class="note__bold">handle*</span>.</p>
+							<p class="note__p">Example:</p>
+							<div class="code">
+								<span class="code__p">onClick={handleClick}</span>
+							</div>
 						</div>
 					</div>
 					<div class="notes__container">
@@ -266,6 +271,12 @@
 						</div>
 						<div class="note">
 							<p class="note__p"><span class="note__bold">User attributes</span> of html elements should be prefixed with <span class="note__bold">"data-*"</span>. Then they will be accessible through the property <span class="note__bold">dataset</span>.</p>
+						</div>
+					</div>
+					<div class="notes__container">
+						<h3>React</h3>
+						<div class="note">
+							<p class="note__p">There are <span class="note__bold">two renders</span> in react 18.2- because of Strict Mod. Such problem <span class="note__bold">only exists in developing mode</span>.</p>
 						</div>
 					</div>
 					<div class="notes__container">
