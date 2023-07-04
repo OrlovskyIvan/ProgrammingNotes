@@ -278,6 +278,39 @@
 						<div class="note">
 							<p class="note__p">There are <span class="note__bold">two renders</span> in react 18.2- because of Strict Mod. Such problem <span class="note__bold">only exists in developing mode</span>.</p>
 						</div>
+						<div class="note">
+							<p class="note__p">In React state is associated with the position of a component in the tree.</p>
+							<p class="note__p">If you have a component like this:</p>
+							<div class="code">
+								<span class="code__p">const Input = ({ name }) => {</span>
+								<span class="code__p"><span class="code__space"></span>const [text, setText] = useState('');</span>
+								<span class="code__empty-line"></span>	
+								<span class="code__p">const handleOnChange = (e) => setText(e.target.value);</span>
+								<span class="code__empty-line"></span>										
+								<span class="code__p"><span class="code__space"></span>return открывающиеСкобкиinput name={name} value={text} onChange={handleOnChange} /закрывающиеСкобки</span>
+								<span class="code__p">}</span>
+							</div>
+							<p class="note__p">And it was replaced with toggling by the same component, React will save the state because the place of the components wasn't empty and it thinks that the components are the same.</p>
+							<p class="note__p">Example:</p>
+							<div class="code">
+							<span class="code__p">{isVisible ? ТэгInput name='fristInput' /Тэг : ТэгInput name='secondInput' /Тэг}</span>
+							</div>
+							<p class="note__p">But if a component is removed then state will be erased:</p>
+							<div class="code">
+								<span class="code__p">ТэгInput name='fristInput' /Тэг</span>
+								<span class="code__p">{isVisible ? ТэгInput name='secondInput' /Тэг : null}</span>
+							</div>
+							<p class="note__p">This is not the same position (? Don't know why, maybe because of a text node):</p>
+							<div class="code">
+								<span class="code__p">{isVisible И ТэгInput /Тэг}</span>
+								<span class="code__p">{!isVisible И ТэгInput /Тэг}</span>
+							</div>
+							<p class="note__p">So after toggling the state of each component will be erased even if you give them keys.</p>
+							<p class="note__p">And if you give to the two components on the same place keys their states will be erased after toggling:</p>
+							<div class="code">
+								<span class="code__p">{isVisible ? ТэгInput key="fristInput" name='fristInput' /Тэг : ТэгInput key="secondInput" name='secondInput' /Тэг}</span>
+							</div>							
+						</div>
 					</div>
 					<div class="notes__container">
 						<h3>Performance</h3>
