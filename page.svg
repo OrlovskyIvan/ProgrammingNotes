@@ -313,6 +313,21 @@
 						</div>
 					</div>
 					<div class="notes__container">
+						<h3>React Router 6.4</h3>
+						<div class="note">
+							<p class="note__p">You can assign an action and a loader to each route.</p>
+							<p class="note__p">Component Form is a browser and data mutator.</p>
+							<p class="note__p">The field action in a Form by default equals to a subroute, where it was rendered.</p>
+							<p class="note__p">When you submitting a Form it will trigger the action on the route, and the action triggers the rerender and the revalidation of mutated data, so rendered components with useLoaderData and useNavigation will be rerendered because of the new data. Even if their data wasn't mutated.</p>
+							<p class="note__p">You can change the action field to a custom route, and assign an action to that route in createBrowserRouter.</p>
+							<p class="note__p">When you submitting a Form you trigger the inner state of the useNavigation hook.</p>
+						</div>
+						<div class="note">
+							<p class="note__p">You can assign an action and a loader to each route.</p>
+							
+						</div>
+					</div>
+					<div class="notes__container">
 						<h3>Performance</h3>
 						<div class="note">
 							<p class="note__p">Today's intepretators do a lot of optimisations. They can influence on the results of tests compared to ordinary use. If you want to understand does performance work you need to read about work of intepretators.</p>
