@@ -316,15 +316,104 @@
 						<h3>React Router 6.4</h3>
 						<div class="note">
 							<p class="note__p">You can assign an action and a loader to each route.</p>
-							<p class="note__p">Component Form is a browser and data mutator.</p>
-							<p class="note__p">The field action in a Form by default equals to a subroute, where it was rendered.</p>
-							<p class="note__p">When you submitting a Form it will trigger the action on the route, and the action triggers the rerender and the revalidation of mutated data, so rendered components with useLoaderData and useNavigation will be rerendered because of the new data. Even if their data wasn't mutated.</p>
-							<p class="note__p">You can change the action field to a custom route, and assign an action to that route in createBrowserRouter.</p>
-							<p class="note__p">When you submitting a Form you trigger the inner state of the useNavigation hook.</p>
+							<p class="note__p">You can have many Forms on a route, and if they don't have reassigned action props to another route they all will call that action that assigned to the route.</p>
 						</div>
 						<div class="note">
-							<p class="note__p">You can assign an action and a loader to each route.</p>
-							
+							<p class="note__p">Component Form is a browser and data mutator.</p>
+							<p class="note__p">The prop action in a Form by default equals to a route, where it was rendered.</p>
+							<p class="note__p">A Form has the prop method that by default equals to GET, but it can be set to POST, PUT, PATCH, or DELETE.</p>
+							<p class="note__p">If you submit a Form with GET, it won't call any action, but if the Form has POST submitting will call the action.</p>
+							<p class="note__p">If you change the action prop to a custom route, it will work like Link and redirect you to the new route.</p>
+							<p class="note__p">This is the logic of calling actions and redirecting using Form:</p>
+							<p class="note__p">Example 1:</p>
+							<div class="code">
+							<span class="code__p">route:</span>
+							<span class="code__p">{</span>
+						        <span class="code__p"><span class="code__space"></span>path: "contacts/:contactId",</span>
+						        <span class="code__p"><span class="code__space"></span>element: Contact /,</span>
+						        <span class="code__p"><span class="code__space"></span>loader: contactLoader,</span>
+						        <span class="code__p"><span class="code__space"></span>action: contactAction,</span>
+						    <span class="code__p">},</span>
+						    <span class="code__empty-line"></span>	
+						    <span class="code__p">form:</span>
+						    <span class="code__p">Form method="post"</span>
+						    	<span class="code__p"><span class="code__space"></span>Button type="submit" /</span>
+						    <span class="code__p">/Form</span>
+						    <span class="code__empty-line"></span>	
+						    <span class="code__p">what will happen:</span>
+						    <span class="code__p">A redirect won't happen because prop action is equal to the route "contacts/:contactId" by default.</span>
+						    <span class="code__p">It will call the action contactAction that is assigned to the route, because it has method="post".</span>
+							</div>
+							<p class="note__p">Example 2:</p>
+							<div class="code">
+							<span class="code__p">route:</span>
+							<span class="code__p">{</span>
+						        <span class="code__p"><span class="code__space"></span>path: "contacts/:contactId",</span>
+						        <span class="code__p"><span class="code__space"></span>element: Contact /,</span>
+						        <span class="code__p"><span class="code__space"></span>loader: contactLoader,</span>
+						        <span class="code__p"><span class="code__space"></span>action: contactAction,</span>
+						    <span class="code__p">},</span>
+						    <span class="code__p">{</span>
+						        <span class="code__p"><span class="code__space"></span>path: "contacts/:contactId/destroy",</span>
+						        <span class="code__p"><span class="code__space"></span>action: deleteAction,</span>
+						    <span class="code__p">},</span>
+						    <span class="code__empty-line"></span>
+						    <span class="code__p">form:</span>
+						    <span class="code__p">Form</span>
+					            <span class="code__p"><span class="code__space"></span>method="post"</span>
+					            <span class="code__p"><span class="code__space"></span>action="destroy"</span>
+					            <span class="code__p"><span class="code__space"></span>Button type="submit" /</span>
+					        <span class="code__p">/Form</span>
+						    <span class="code__empty-line"></span>
+						    <span class="code__p">what will happen:</span>
+						    <span class="code__p">A redirect will happen, because there is the prop action with a subroute "destroy".</span>
+						    <span class="code__p">It will call the action because it has method="post".</span>
+						    <span class="code__p">It will call the action deleteAction that is assigned to the another route "contacts/:contactId/destroy" because the redirection will happen in the beginning.</span>
+							</div>
+							<p class="note__p">Example 3:</p>
+							<div class="code">
+							<span class="code__p">route:</span>
+							<span class="code__p">{</span>
+						        <span class="code__p"><span class="code__space"></span>path: "contacts/:contactId",</span>
+						        <span class="code__p"><span class="code__space"></span>element: Contact /,</span>
+						        <span class="code__p"><span class="code__space"></span>loader: contactLoader,</span>
+						        <span class="code__p"><span class="code__space"></span>action: contactAction,</span>
+						    <span class="code__p">},</span>
+						    <span class="code__p">{</span>
+						        <span class="code__p"><span class="code__space"></span>path: "contacts/:contactId/edit",</span>
+						        <span class="code__p"><span class="code__space"></span>element: EditContact /,</span>
+						        <span class="code__p"><span class="code__space"></span>loader: contactLoader,</span>
+						        <span class="code__p"><span class="code__space"></span>action: editAction,</span>
+						    <span class="code__p">},</span>
+						    <span class="code__empty-line"></span>
+						    <span class="code__p">form:</span>
+						    <span class="code__p">Form action="edit"</span>
+					            <span class="code__p"><span class="code__space"></span>Button type="submit" /</span>
+					        <span class="code__p">/Form</span>
+						    <span class="code__empty-line"></span>
+						    <span class="code__p">what will happen:</span>
+						    <span class="code__p">A redirect will happen, because there is the prop action with a subroute "edit".</span>
+						    <span class="code__p">It won't call any action because the Form has method GET.</span>
+							</div>
+						</div>
+						<div class="note">
+							<p class="note__p">Hooks useNavigation, useFetcher have an inner state.</p>
+							<p class="note__p">When you submitting a Form it will trigger the action on the route, and the action triggers the rerender and the revalidation of mutated data, so rendered components with useLoaderData and useNavigation will be rerendered because of the new data. Even if their data wasn't mutated.</p>
+							<p class="note__p">When you submitting a Form you trigger the inner state of the useNavigation hook. In this case in the object of useNavigation will be the formData of the submitted Form.</p>
+							<p class="note__p">Submitting a Form -> triggers useNavigation -> formData in the object of useNavigation.</p>
+							<p class="note__p">Submitting a fetcher.Form -> triggers useNavigation -> there is no formData in the object of useNavigation.</p>
+							<p class="note__p">useFetcher also has an inner state.</p>
+							<p class="note__p">When you submit a fetcher.Form this state changes happens:</p>
+							<p class="note__p">Click -></p>
+							<p class="note__p">The first render: navigation idle -> fetcher submitting - formData -></p>
+							<p class="note__p">The second render: navigation idle -> fetcher loading - formData -></p>
+							<p class="note__p">The third render: navigation idle -> fetcher idle - no formData</p>
+							<p class="note__p">When you submit a Form this state changes happens:</p>
+							<p class="note__p">Click -></p>
+							<p class="note__p">The first render: navigation submitting - formData -></p>
+							<p class="note__p">The second render: navigation loading - formData -></p>
+							<p class="note__p">The third render: navigation idle - no formData</p>
+							<p class="note__p">This can be used to control different behaviors such as Optimistic UI. https://reactrouter.com/en/main/hooks/use-navigation</p>
 						</div>
 					</div>
 					<div class="notes__container">
@@ -333,6 +422,10 @@
 							<p class="note__p">Today's intepretators do a lot of optimisations. They can influence on the results of tests compared to ordinary use. If you want to understand does performance work you need to read about work of intepretators.</p>
 							<p class="note__p">Source: https://learn.javascript.ru/date</p>
 							<p class="note__p">Good article about V8: https://mrale.ph/</p>
+						</div>
+						<div class="note">
+							<p class="note__p">Map and Set has better performance in some cases.</p>
+							<p class="note__p">When to use Map and Set: https://www.youtube.com/watch?v=hubQQ3F337A.</p>
 						</div>
 					</div>
 					<div class="notes__container">
