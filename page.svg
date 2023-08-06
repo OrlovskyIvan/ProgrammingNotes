@@ -417,6 +417,38 @@
 						</div>
 					</div>
 					<div class="notes__container">
+						<h3>Optimization of images</h3>
+						<div class="note">
+							<p class="note__p">JPEG isn't a file format.</p>
+							<p class="note__p">It is a standardized specification for lossy compression for digital images.</p>
+							<p class="note__p">Talking about JPEG format we are actually talking about JFIF (JPEG File Interchange Format).</p>
+							<p class="note__p">Talking about JPEG format we are actually talking about JFIF (JPEG File Interchange Format). This is the wrapper that holds the compressed data created by the JPEG compression.</p>
+							<p class="note__p">There are also EXIF format that is used by photographers.</p>
+							<p class="note__p">Both formats use the JPEG extension.</p>
+						</div>
+						<div class="note">
+							<p class="note__p">Baseline JPEG - loads line by line.</p>
+							<p class="note__p">Progressive JPEG - loads from bad resolution to good.</p>
+						</div>
+						<div class="note">
+							<p class="note__p">Sharp is a good node.js module for optimization of images.</p>
+							<p class="note__p">It uses:</p>
+							<p class="note__p">Its own ui and foreign libraries for optimization.</p>
+							<p class="note__p">Libraries are:</p>
+							<p class="note__p">mozjpeg - for JPEG</p>
+							<p class="note__p">pngquant - for PNG</p>
+							<p class="note__p">libjpeg -> libjpeg-turbo (+ jpgcrush) -> mozjpeg</p>
+							<p class="note__p">mozjpeg includes the most used technics:</p>
+							<p class="note__p">
+							progressive JPEG encoding - includes all below technics but the technics vary by types and methods. mozjpeg uses the method to optimally split the spectrum of DCT coefficients into separate scans and the tool jpgcrush that is python wrapper around jpegtran.
+							</p>
+							<p class="note__p">Discrete Cosine Transform (DCT) - uses cosine transform to convert 8x8 blocks of Y, Cb, Cr channels from a spatial domain representation to a frequency domain representation.</p>
+							<p class="note__p">trellis quantization - (quality setting, usually 0-100) The quantization process aims to reduce the overall size of the DCT coefficients so that they can be more efficiently compressed in the final Entropy Coding stage. To calculate the quantized DCT coefficients, you must divide the DCT coefficients by the quantization matrix and then round to the nearest whole number.</p>
+							<p class="note__p">After quantization jpegtran is applied to arrange the order in which the coefficients are processed during run-length coding matters.</p>
+							p class="note__p">Huffman Coding - Run-length encoding is a form of lossless compression in which data sequences are stored as a single data value and count rather than in their original form.</p>
+						</div>
+					</div>
+					<div class="notes__container">
 						<h3>Performance</h3>
 						<div class="note">
 							<p class="note__p">Today's intepretators do a lot of optimisations. They can influence on the results of tests compared to ordinary use. If you want to understand does performance work you need to read about work of intepretators.</p>
