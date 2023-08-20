@@ -417,6 +417,12 @@
 						</div>
 					</div>
 					<div class="notes__container">
+						<h3>HTML</h3>
+						<div class="note">
+							<p class="note__p">When you change language on the webpage you need to change attribute lang to "ru" on the html tag.</p>
+						</div>
+					</div>
+					<div class="notes__container">
 						<h3>Optimization of images</h3>
 						<div class="note">
 							<p class="note__p">JPEG isn't a file format.</p>
@@ -445,7 +451,10 @@
 							<p class="note__p">Discrete Cosine Transform (DCT) - uses cosine transform to convert 8x8 blocks of Y, Cb, Cr channels from a spatial domain representation to a frequency domain representation.</p>
 							<p class="note__p">trellis quantization - (quality setting, usually 0-100) The quantization process aims to reduce the overall size of the DCT coefficients so that they can be more efficiently compressed in the final Entropy Coding stage. To calculate the quantized DCT coefficients, you must divide the DCT coefficients by the quantization matrix and then round to the nearest whole number.</p>
 							<p class="note__p">After quantization jpegtran is applied to arrange the order in which the coefficients are processed during run-length coding matters.</p>
-							p class="note__p">Huffman Coding - Run-length encoding is a form of lossless compression in which data sequences are stored as a single data value and count rather than in their original form.</p>
+							<p class="note__p">Huffman Coding - Run-length encoding is a form of lossless compression in which data sequences are stored as a single data value and count rather than in their original form.</p>
+							<p class="note__p">Links about jpeg compression technics:</p>
+							<p class="note__p">https://www.thewebmaster.com/jpeg-definitive-guide/</p>
+							<p class="note__p">https://www.thewebmaster.com/progressive-jpegs/</p>
 						</div>
 					</div>
 					<div class="notes__container">
